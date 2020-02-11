@@ -34,7 +34,9 @@ Your guess is as good as mine
 I would recommend using the time the workflow has saved you into migrating to an identity provider that can be bound to using the `dsconfigad` or `dsconfigldap` binaries. If possible removing the binding in it's entirety. I'd recommend looking at [NoMAD Login](https://gitlab.com/orchardandgrove-oss/NoMADLogin-AD) as a viable replacement option as long as there is the capacity to stand up an Active Directory DC.
 
 ## Will Apple fix this?
-**For them to fix it you as an admin need to file feedback with them that this is an important workflow for you**. I will direct you to this [email thread from 2009](https://lists.apple.com/archives/darwin-dev/2009/Feb/msg00127.html) which spells out how `dsconfigldap` does not contain the capability to take in custom ldap attribute mappings.
+**For them to fix it you as an admin need to file feedback with them that this is an important workflow for you**. 
+
+I will direct you to this [email thread from 2009](https://lists.apple.com/archives/darwin-dev/2009/Feb/msg00127.html) which spells out how `dsconfigldap` does not contain the capability to take in custom ldap attribute mappings.
 
 ## How it works
 ![Shia](https://media.giphy.com/media/ujUdrdpX7Ok5W/giphy.gif)
