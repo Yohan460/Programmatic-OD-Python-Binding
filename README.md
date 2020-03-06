@@ -11,7 +11,7 @@ In a typical Open Directory bind there are three main plist files contained with
  * `Search.plist`
  * `Contacts.plist`
  
- When analyzing which of these files are actually used for, the `Configurations/ldap.domain.contoso.com.plist` defines the Open Directory server and contains the actual binding information. The `Search.plist` defines the macOS user search space and hierarchies when an Open Directory user attempts to login to the device. Without the `Search.plist`, while a machine may be bound in the technical sense, it will not let a user login. Lastly there is the `Contacts.plist`. This as far as I can tell helps network user contact population and therefore isn't needed. 
+ When analyzing which of these files are actually used for, the `Configurations/ldap.domain.contoso.com.plist` defines the Open Directory server and contains the actual binding information. The `Search.plist` defines the macOS user search space and hierarchies when an Open Directory user attempts to login to the device. Without the `Search.plist`, while a machine may be bound in the technical sense, it will not let a user login. Lastly there is the `Contacts.plist`. This as far as I can tell helps network user contact population and therefore isn't needed, but there is an optional step below to allow for it. 
 
 ## Implementation
 1. To write the `ldap.domain.contoso.corp.plist` you have to use the [LDAPv3Write.py](https://github.com/Yohan460/Programmatic-OD-Python-Binding/blob/master/LDAPv3Write.py) script and execute it as follows:
@@ -21,6 +21,10 @@ In a typical Open Directory bind there are three main plist files contained with
 2. To edit default `Search.plist` and append your OpenDirectory bind you run the following command:
 
 `dscl -q localhost -merge /Search CSPSearchPath /LDAPv3/ldap.domain.contoso.com`
+
+**Optional:** To edit default `Contacts.plist` and append your OpenDirectory bind you run the following command:
+
+`dscl -q localhost -merge /Contact CSPSearchPath /LDAPv3/ldap.domain.contoso.com`
 
 3. Add your OD/LDAP Authenticating user to the System keychain using the security command demonstrated below. This username must link to the authenticating user defined within your `ldap.domain.contoso.com.plist`:
 
