@@ -4,6 +4,8 @@ Writing binding information programmatically on macOS Catalina and above
 ## The Problem
 In macOS Catalina and Big Sur the `/Library/Preferences/OpenDirectory/Configurations` folder appears to be protected by SIP or some other unknown protection mechanism. This leaves the common Open Directory binding installation of placing down the configuration plist files nonfunctional. This can be a hard stop when it comes to fully programmatically provisioning a machine via DEP, with the only workaround before discovering this method being using the Directory Utility GUI to manually enter the binding settings.
 
+To further complicate things, Apple removed Python 2.7 starting with Monterey 12.3 (in fairness, after years of warning us they would do so). The folks at macadmins.org have packaged a purpose-built, self-contained python3 package for exactly this type of administrative need. Therefore, the Monterey version of this script has been modified to use python3 and requires that the python_recommended.pkg from macadmins be installed. Latest versions of this package, signed and unsigned, can be found here: https://github.com/macadmins/python/releases  
+
 ## The Components of an OD Bind
 In a typical Open Directory bind there are three main plist files contained within the Configurations directory, they are as follows:
 
